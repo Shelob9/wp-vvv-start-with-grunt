@@ -29,7 +29,7 @@
     }
   ],
   "require"     : {
-    "johnpbloch/wordpress"                                      : "4.0",
+    "johnpbloch/wordpress"                                      : "4.1",
     "pods-framework/pods"                                       : "2.x",
     "wpackagist-plugin/json-rest-api"                           : "*",
     "pods-framework/pods-deploy"                                : "*",

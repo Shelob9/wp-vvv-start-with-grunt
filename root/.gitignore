@@ -1,0 +1,6 @@
+public_html/site-content/plugins
+public_html/site-content/themes
+public_html/wp
+vendor
+production-config.php
+debug.log

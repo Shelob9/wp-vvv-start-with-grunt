@@ -1,0 +1,59 @@
+{
+  "name"        : "shelob9/site",
+  "description" : "site.",
+  "authors"     : [
+    {
+      "name"    : "Josh Pollock",
+      "email"   : "Josh@joshpress.net",
+      "homepage": "http://joshpress.net/"
+    },
+
+  ],
+  "type"        : "project",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url" : "http://wpackagist.org"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/pods-framework/pods-json-api"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/pods-framework/pods-deploy"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/pods-framework/pods"
+    }
+  ],
+  "require"     : {
+    "johnpbloch/wordpress"                                      : "4.0",
+    "pods-framework/pods"                                       : "2.x",
+    "wpackagist-plugin/json-rest-api"                           : "*",
+    "pods-framework/pods-deploy"                                : "*",
+    "pods-framework/pods-json-api"                              : "*",
+    "wpackagist-plugin/restricted-site-access"                  : "*",
+    "wpackagist-plugin/log-viewer"                              : "*",
+    "wpackagist-plugin/caldera-forms"                           : "*",
+    "wpackagist-theme/twentyfifteen"                            : "*",
+    "wpackagist-theme/fukasawa"                                 : "*"
+
+  },
+  "require-dev" : {
+    "wpackagist-plugin/log-deprecated-notices"              : "*",
+    "wpackagist-plugin/debug-bar"                           : "*",
+    "wpackagist-plugin/debug-bar-console"                   : "*",
+    "wpackagist-plugin/user-switching"                      : "*",
+    "wpackagist-plugin/simply-show-ids"                     : "*"
+  },
+  "extra"       : {
+    "wordpress-install-dir": "public_html/wp",
+    "installer-paths": {
+      "public_html/site-content/plugins/{$name}/" : ["type:wordpress-plugin"],
+      "public_html/site-content/themes/{$name}/"  : ["type:wordpress-theme"]
+    }
+  }
+}

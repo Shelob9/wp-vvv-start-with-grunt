@@ -1,4 +1,7 @@
 Josh's WordPress VVV Site Starter
+================================
+
+[Why I Love Composer For This Sort Of Thing](http://joshpress.net/blog/using-composer-increase-wordpress-development-powers/)
 
 
 ### Setup Local Dev

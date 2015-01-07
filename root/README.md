@@ -6,12 +6,19 @@ Josh's WordPress VVV Site Starter
 
 ### Setup Local Dev
 cd into your VVV's www dir
+
 git clone https://github.com/shelob9/wp-vvv-start.git site
+
 Find and Replace "site" and change to whatever you want.
+
 cd site
+
 composer update
+
 vagrant provision
+
 vagrant halt
+
 vagrant up
 
 ### Going Live, wp-config and you

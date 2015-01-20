@@ -1,11 +1,11 @@
 {
-  "name"        : "shelob9/site",
-  "description" : "site.",
+  "name"        : "shelob9/{%= site_slug %}",
+  "description" : "{%= description %}.",
   "authors"     : [
     {
-      "name"    : "Josh Pollock",
-      "email"   : "Josh@joshpress.net",
-      "homepage": "http://joshpress.net/"
+      "name"    : "{%= author_name %}",
+      "email"   : "{%= author_email %}",
+      "homepage": "{%= author_url %}"
     }
   ],
   "type"        : "project",
@@ -40,7 +40,6 @@
     "wpackagist-plugin/caldera-forms"                           : "*",
     "wpackagist-theme/twentyfifteen"                            : "*",
     "wpackagist-theme/fukasawa"                                 : "*"
-
   },
   "require-dev" : {
     "wpackagist-plugin/log-deprecated-notices"              : "*",
@@ -52,8 +51,8 @@
   "extra"       : {
     "wordpress-install-dir": "public_html/wp",
     "installer-paths": {
-      "public_html/site-content/plugins/{$name}/" : ["type:wordpress-plugin"],
-      "public_html/site-content/themes/{$name}/"  : ["type:wordpress-theme"]
+      "public_html/{%= site_slug %}-content/plugins/{$name}/" : ["type:wordpress-plugin"],
+      "public_html/{%= site_slug %}-content/themes/{$name}/"  : ["type:wordpress-theme"]
     }
   }
 }

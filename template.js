@@ -55,7 +55,7 @@ exports.template = function( grunt, init, done ) {
         init.prompt( 'description' ),
 
         //author details
-        init.prompt( 'homepage', 'http://JoshPress.net' ),
+        init.prompt( 'author_url', 'http://JoshPress.net' ),
         init.prompt( 'author_name', 'Josh Pollock' ),
         init.prompt( 'author_email', 'Josh@JoshPress.net' ),
         {
@@ -74,17 +74,17 @@ exports.template = function( grunt, init, done ) {
             'grunt-contrib-cssmin': '~0.10.0',
             'grunt-contrib-jshint': '~0.10.0',
             'grunt-contrib-nodeunit': '~0.4.1',
-            'grunt-contrib-watch': '~0.6.1',
+            'grunt-contrib-watch': '~0.6.1'
         };
 
         // Sanitize names where we need to for PHP/JS
-        props.name = props.theme_prefix.replace( /\s+/g, '-' ).toLowerCase();
+        props.name = props.title.replace( /\s+/g, '-' ).toLowerCase();
 
         // Development prefix (i.e. to prefix PHP function names, variables)
-        props.prefix = props.prefix.replace('/[^a-z_]/i', '').toLowerCase();
+        props.prefix = props.theme_prefix.replace('/[^a-z_]/i', '').toLowerCase();
 
         // Development prefix in all caps (e.g. for constants)
-        props.prefix_caps = props.prefix.toUpperCase();
+        props.theme_prefix_caps = props.theme_prefix.toUpperCase();
 
         // An additional value, safe to use as a JavaScript identifier.
         props.js_safe_name = props.name.replace(/[\W_]+/g, '_').replace(/^(\d)/, '_$1');

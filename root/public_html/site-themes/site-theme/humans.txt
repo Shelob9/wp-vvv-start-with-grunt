@@ -1,0 +1,8 @@
+/* TEAM */
+	Developer: {%= author_name %}
+	Contact:   {%= author_email %}
+	URI:       {%= author_url %}
+
+/* SITE */
+	Created:  {%= grunt.template.today("yyyy-mm-dd") %}
+	Template: https://github.com/10up/grunt-wp-theme

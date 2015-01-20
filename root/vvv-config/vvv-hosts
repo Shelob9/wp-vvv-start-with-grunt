@@ -1,1 +1,1 @@
-site.dev
+{%= dev_url %}

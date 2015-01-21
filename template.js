@@ -25,10 +25,13 @@ exports.warnOn = '*';
 // The actual init template
 exports.template = function( grunt, init, done ) {
     init.process( {}, [
-        // Prompt for these values
+        /** Prompts **/
 
         //site title
         init.prompt( 'title', 'site.com' ),
+
+        //description
+        init.prompt( 'description' ),
 
         //site slug
         {
@@ -38,11 +41,8 @@ exports.template = function( grunt, init, done ) {
         },
 
 
-        //site dev URL
-        init.prompt( 'dev_url', 'http://site.com' ),
-
         //site live URL
-        init.prompt( 'live_url', 'http://site.com' ),
+        init.prompt( 'live_url', '' ),
 
         //php prefix for theme
         {
@@ -51,18 +51,20 @@ exports.template = function( grunt, init, done ) {
             default: 'site_theme'
         },
 
-        //description
-        init.prompt( 'description' ),
 
         //author details
         init.prompt( 'author_url', 'http://JoshPress.net' ),
         init.prompt( 'author_name', 'Josh Pollock' ),
         init.prompt( 'author_email', 'Josh@JoshPress.net' ),
-        {
-            name: 'css_type',
-            message: 'CSS Preprocessor: Will you use "Sass", "LESS", or "none" for CSS with this project?',
-            default: 'Sass'
-        }
+
+        //color palette
+        init.prompt( 'primary_color' ),
+        init.prompt( 'secondary_color' ),
+        init.prompt( 'accent_color' ),
+        init.prompt( 'background_color' )
+
+
+
     ], function( err, props ) {
         props.keywords = [];
         props.version = '0.1.0';
@@ -76,6 +78,8 @@ exports.template = function( grunt, init, done ) {
             'grunt-contrib-nodeunit': '~0.4.1',
             'grunt-contrib-watch': '~0.6.1'
         };
+
+        /**Create More Vars Programattically*/
 
         // Sanitize names where we need to for PHP/JS
         props.name = props.title.replace( /\s+/g, '-' ).toLowerCase();
@@ -91,46 +95,52 @@ exports.template = function( grunt, init, done ) {
 
         // An additional value that won't conflict with NodeUnit unit tests.
         props.js_test_safe_name = props.js_safe_name === 'test' ? 'myTest' : props.js_safe_name;
-
         props.js_safe_name_caps = props.js_safe_name.toUpperCase();
 
-        // Files to copy and process
+        //make author_url and hompepage the same for now
+        props.homepage = props.author_url;
+
+        //create dev_url for use in VVV config
+        props.dev_url = props.site_slug + '.dev';
+
+        /**Copy and Process Files**/
         var files = init.filesToCopy( props );
-
-        switch( props.css_type.toLowerCase()[0] ) {
-            case 'l':
-                delete files[ 'public_html/site-themes/site-theme/assets/css/sass/' + props.js_safe_name + '.scss'];
-                delete files[ 'public_html/site-themes/site-theme/assets/css/src/' + props.js_safe_name + '.css' ];
-
-                props.devDependencies["grunt-contrib-less"] = "~0.11.2";
-                props.css_type = 'less';
-                break;
-            case 'n':
-            case undefined:
-                delete files[ 'public_html/site-themes/site-theme/assets/css/less/' + props.js_safe_name + '.less'];
-                delete files[ 'public_html/site-themes/site-theme/assets/css/sass/' + props.js_safe_name + '.scss'];
-
-                props.css_type = 'none';
-                break;
-            // SASS is the default
-            default:
-                delete files[ 'public_html/site-themes/site-theme/assets/css/less/' + props.js_safe_name + '.less'];
-                delete files[ 'public_html/site-themes/site-theme/assets/css/src/' + props.js_safe_name + '.css' ];
-
-                props.devDependencies["grunt-contrib-sass"] = "~0.8.0";
-                props.css_type = 'sass';
-                break;
-        }
-
-        console.log( files );
 
         // Actually copy and process files
         init.copyAndProcess( files, props );
 
-        // Generate package.json file
-        init.writePackageJSON( 'package.json', props );
+       //move and rename additional files
+        var files = init.filesToCopy(props),
+            newThemeDir = props.site_slug + '-content/' + props.site_slug + '-themes/' + props.site_slug + '-theme';
+        var match = 'site-content/site-themes/site-theme';
+        for (var file in files) {
 
-        // Done!
+            if (file.indexOf( match ) > -1) {
+
+                var path = files[file],
+                    newFile = file.replace( match, newThemeDir );
+
+                files[newFile] = path;
+                delete files[file];
+            }
+
+        }
+
+        //do the copy and replace
+        init.copyAndProcess(files, props);
+
+        //log new file names. Looks cool, and lets us see mistakes.
+        console.log( files );
+
+        // Generate package.json file
+        var newThemeDirFull = 'public_html/' + newThemeDir;
+        init.writePackageJSON( newThemeDirFull + '/package.json', props );
+
+        //delete site-content dir
+        grunt.file.delete( 'public_html/site-content' );
+
+        /** Be done */
         done();
+
     });
 };

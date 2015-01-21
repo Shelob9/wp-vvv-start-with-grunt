@@ -6,7 +6,7 @@
 /**
  * Content dir/url
  */
-define( 'CONTENT_DIR', '/cwp-content' );
+define( 'CONTENT_DIR', '/{%=site_slug %}-content' );
 define( 'WP_CONTENT_DIR', WP_WEBROOT_DIR . CONTENT_DIR );
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/public_html' . CONTENT_DIR );
 

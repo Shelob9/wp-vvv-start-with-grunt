@@ -1,9 +1,11 @@
 {
-  "public_html/site-content/site-content/site-themes/site-theme/assets/css/less/theme.less": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes/{%= site_slug %}-theme/assets/css/less/{%= js_safe_name %}.less",
   "public_html/site-content/site-themes/site-theme/assets/css/sass/theme.scss": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes/{%= site_slug %}-theme/assets/css/sass/{%= js_safe_name %}.scss",
   "public_html/site-content/site-themes/site-theme/assets/css/src/theme.css": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes/{%= site_slug %}-theme/assets/css/src/{%= js_safe_name %}.css",
   "public_html/site-content/site-themes/site-theme/assets/js/src/theme.js": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes/{%= site_slug %}-theme/assets/js/src/{%= js_safe_name %}.js",
   "public_html/site-content/site-themes/site-theme/site-theme/languages/theme.pot": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes/{%= site_slug %}-theme/languages/{%= theme_prefix %}.pot",
-  "public_html/site-content/site-themes": "public_html/site-content/{%= site_slug %}-themes",
-  "public_html/site-content/{%= site_slug %}-themes": "public_html/site-content/{%= site_slug %}-themes/{%= site_slug %}-theme"
+  "public_html/site-content/site-themes": "public_html/{%= site_slug %}-content/{%= site_slug %}-themes",
+  "public_html/site-content/mu-plugins/index.php": "public_html/{%= site_slug %}-content/mu-plugins/index.php",
+  "public_html/site-content/mu-plugins/extra-theme-dir.php": "public_html/{%= site_slug %}-content/mu-plugins/extra-theme-dir.php"
+
+
 }

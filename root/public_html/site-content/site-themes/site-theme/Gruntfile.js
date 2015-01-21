@@ -62,7 +62,6 @@ module.exports = function( grunt ) {
 		test:   {
 			files: ['assets/js/test/**/*.js']
 		},
-		{% if ('sass' === css_type) { %}
 		sass:   {
 			all: {
 				files: {
@@ -70,15 +69,6 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		{% } else if ('less' === css_type) { %}
-		less:   {
-			all: {
-				files: {
-					'assets/css/{%= js_safe_name %}.css': 'assets/css/less/{%= js_safe_name %}.less'
-				}
-			}
-		},
-		{% } %}
 		cssmin: {
 			options: {
 				banner: '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +

@@ -1,6 +1,11 @@
-public_html/site-content/plugins
-public_html/site-content/themes
+public_html/{%=site_slug}-content/plugins
+public_html/{%=site_slug}-content/themes
+public_html/{%=site_slug}-content/uploads
+public_html/{%=site_slug}-content/debug.log
 public_html/wp
 vendor
 production-config.php
+_production-config.php
+staging-config.php
+_staging-config.php
 debug.log

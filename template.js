@@ -105,8 +105,6 @@ exports.template = function( grunt, init, done ) {
 
         /**Copy and Process Files**/
         var files = init.filesToCopy( props );
-
-        // Actually copy and process files
         init.copyAndProcess( files, props );
 
        //move and rename additional files
@@ -126,7 +124,6 @@ exports.template = function( grunt, init, done ) {
 
         }
 
-        //do the copy and replace
         init.copyAndProcess(files, props);
 
         //log new file names. Looks cool, and lets us see mistakes.
@@ -137,7 +134,9 @@ exports.template = function( grunt, init, done ) {
         init.writePackageJSON( newThemeDirFull + '/package.json', props );
 
         //delete site-content dir
-        grunt.file.delete( 'public_html/site-content' );
+        if ( 'site' !== props.site_slug && grunt.file.exists( 'public_html/site-content' ) ) {
+            grunt.file.delete( 'public_html/site-content' );
+        }
 
         /** Be done */
         done();

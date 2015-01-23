@@ -1,0 +1,13 @@
+public_html/{%= site_slug %}-content/plugins
+public_html/{%= site_slug %}-content/themes
+public_html/{%= site_slug %}-content/themes
+public_html/wp
+vendor/
+node_modules/
+production-config.php
+_production-config.php
+staging-config.php
+_staging-config.php
+debug.log
+public_html/{%= site_slug %}-content/debug.log
+.idea/

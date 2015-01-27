@@ -103,6 +103,10 @@ exports.template = function( grunt, init, done ) {
         //create dev_url for use in VVV config
         props.dev_url = props.site_slug + '.dev';
 
+        //hardcode css_type to SASS
+        props.css_type = 'sass';
+
+
         /**Copy and Process Files**/
         var files = init.filesToCopy( props );
         init.copyAndProcess( files, props );

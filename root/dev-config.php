@@ -6,7 +6,7 @@
 /**
  * Local DB config
  */
-define( 'DB_NAME', 'site' );
+define( 'DB_NAME', '{%= site_slug %}' );
 define( 'DB_USER', 'wp' );
 define( 'DB_PASSWORD', 'wp' );
 

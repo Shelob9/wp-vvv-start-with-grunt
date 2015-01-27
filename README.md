@@ -46,7 +46,7 @@ In order to facilitate having a theme not under version control, a second theme 
 
 Speaking of mu-plugins, that directory is not gitinored.
 
-This site's content directory, is named for the project and is not wp-content, that makes it easier to search for on your computer, as you proably already have 2700 wp-contents. WordPress is installed in a directory called "wp". That keeps the things that defines your site--plugins, themes, mu-plugins, uploads, etc.--seperated from WordPress itself.
+This site's content directory, is named for the project and is not wp-content, that makes it easier to search for on your computer, as you probably already have 2700 wp-contents. WordPress is installed in a directory called "wp". That keeps the things that defines your site--plugins, themes, mu-plugins, uploads, etc.--separated from WordPress itself.
 
     
 ### Going Live, wp-config and You
